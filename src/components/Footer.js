@@ -1,6 +1,10 @@
 import React from "react";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography, IconButton } from "@mui/material";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const Footer = () => (
   <Box mt="80px" bgcolor="#FFF3F4">
@@ -20,7 +24,7 @@ const Footer = () => (
       justifyContent="center"
       alignItems="center"
       mt="50px"
-      pb="50px"
+      pb="20px"
     >
       <FitnessCenterIcon
         sx={{
@@ -43,6 +47,46 @@ const Footer = () => (
         GYMX
       </Typography>
     </Box>
+
+    {/* Social Media Icons */}
+    <Box display="flex" justifyContent="center" alignItems="center" mb="20px">
+      <IconButton
+        sx={{ color: "#FF2625" }}
+        aria-label="facebook"
+        href="https://facebook.com"
+        target="_blank"
+      >
+        <FacebookIcon />
+      </IconButton>
+      <IconButton
+        sx={{ color: "#FF2625" }}
+        aria-label="twitter"
+        href="https://twitter.com"
+        target="_blank"
+      >
+        <TwitterIcon />
+      </IconButton>
+      <IconButton
+        sx={{ color: "#FF2625" }}
+        aria-label="instagram"
+        href="https://instagram.com"
+        target="_blank"
+      >
+        <InstagramIcon />
+      </IconButton>
+      <IconButton
+        sx={{ color: "#FF2625" }}
+        aria-label="linkedin"
+        href="https://linkedin.com"
+        target="_blank"
+      >
+        <LinkedInIcon />
+      </IconButton>
+    </Box>
+
+    <Typography variant="body2" sx={{ color: "#FF2625", mb: "20px" }}>
+      © {new Date().getFullYear()} GYMX. All Rights Reserved.
+    </Typography>
   </Box>
 );
 
