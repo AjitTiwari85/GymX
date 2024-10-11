@@ -6,7 +6,7 @@ import { exerciseOptions, fetchData } from "../utils/fetchData";
 import ExerciseCard from "./ExerciseCard";
 import Loader from "./Loader";
 
-const Exercises = ({ exercises = [], setExercises, bodyPart }) => {
+const Exercises = ({ exercises, setExercises, bodyPart }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [exercisesPerPage] = useState(6);
 
@@ -30,17 +30,19 @@ const Exercises = ({ exercises = [], setExercises, bodyPart }) => {
     };
 
     fetchExercisesData();
-  }, [bodyPart, setExercises]);
+  }, [bodyPart]);
 
   // Pagination
   const indexOfLastExercise = currentPage * exercisesPerPage;
   const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
-  const currentExercises = exercises.length
-    ? exercises.slice(indexOfFirstExercise, indexOfLastExercise)
-    : [];
+  const currentExercises = exercises.slice(
+    indexOfFirstExercise,
+    indexOfLastExercise
+  );
 
   const paginate = (event, value) => {
     setCurrentPage(value);
+
     window.scrollTo({ top: 1800, behavior: "smooth" });
   };
 
@@ -67,7 +69,7 @@ const Exercises = ({ exercises = [], setExercises, bodyPart }) => {
         ))}
       </Stack>
       <Stack sx={{ mt: { lg: "114px", xs: "70px" } }} alignItems="center">
-        {exercises.length > exercisesPerPage && (
+        {exercises.length > 9 && (
           <Pagination
             color="standard"
             shape="rounded"
